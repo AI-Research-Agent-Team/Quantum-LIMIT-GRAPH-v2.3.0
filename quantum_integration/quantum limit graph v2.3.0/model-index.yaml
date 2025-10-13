@@ -1,0 +1,85 @@
+# Model Index for Hugging Face Hub Discovery
+# Quantum LIMIT-GRAPH v2.3.0
+
+model-index:
+  - name: quantum-limit-graph-v2.3.0
+    results:
+      - task:
+          type: multilingual-research
+          name: Multilingual Quantum Research
+        dataset:
+          type: custom
+          name: Multilingual Research Corpus
+        metrics:
+          - type: accuracy
+            value: 0.92
+            name: Language Detection Accuracy
+          - type: latency
+            value: 45.3
+            name: Average Latency (ms)
+          - type: coherence
+            value: 0.87
+            name: Semantic Coherence Score
+          - type: alignment
+            value: 0.84
+            name: Cross-Lingual Alignment
+      
+      - task:
+          type: quantum-traversal
+          name: Quantum Graph Traversal
+        metrics:
+          - type: speedup
+            value: 1.8
+            name: Quantum Speedup vs Classical
+          - type: coherence
+            value: 0.89
+            name: Path Coherence
+          - type: citation_coverage
+            value: 0.91
+            name: Citation Coverage
+      
+      - task:
+          type: hallucination-detection
+          name: Hallucination Detection
+        metrics:
+          - type: precision
+            value: 0.88
+            name: Detection Precision
+          - type: recall
+            value: 0.85
+            name: Detection Recall
+          - type: f1
+            value: 0.865
+            name: F1 Score
+
+tags:
+  - quantum-computing
+  - multilingual-nlp
+  - graph-traversal
+  - research-agent
+  - hallucination-detection
+  - mbart-50
+  - qaoa
+  - semantic-graph
+
+languages:
+  - en
+  - es
+  - fr
+  - de
+  - zh
+  - ja
+  - ko
+  - ar
+  - hi
+  - id
+  - pt
+  - ru
+  - vi
+  - th
+  - tr
+
+library_name: transformers
+pipeline_tag: text-generation
+
+license: apache-2.0

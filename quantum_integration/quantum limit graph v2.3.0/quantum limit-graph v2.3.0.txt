@@ -1,0 +1,35 @@
+quantum-limit-graph-v2.3.0/
+├── src/
+│   ├── agent/
+│   │   ├── multilingual_parser.py
+│   │   ├── quantum_traversal.py
+│   │   ├── ace_encoder.py
+│   │   └── repair_edit_stream.py
+│   ├── graph/
+│   │   ├── semantic_graph.py
+│   │   ├── multilingual_alignment.py
+│   │   └── citation_walks.py
+│   ├── context/
+│   │   ├── ace_context_router.py
+│   │   └── layer_density_monitor.py
+│   ├── evaluation/
+│   │   ├── benchmark_harness.py
+│   │   ├── edit_reliability.py
+│   │   └── alignment_score.py
+│   └── ci/
+│       ├── validator.py
+│       ├── spdx_checker.py
+│       └── layer_balance_test.py
+├── data/
+│   ├── multilingual_corpus/
+│   ├── quantum_edit_logs/
+│   └── contributor_submissions/
+├── notebooks/
+│   ├── demo_traversal.ipynb
+│   └── edit_visualization.ipynb
+├── configs/
+│   ├── routing_thresholds.yaml
+│   └── quantum_backend.yaml
+├── LICENSE
+├── README.md
+└── CONTRIBUTING.md
