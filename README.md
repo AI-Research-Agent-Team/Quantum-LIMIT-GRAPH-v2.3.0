@@ -228,7 +228,7 @@ Copyright (c) 2025 AI Research Agent Team
   author={AI Research Agent Team},
   year={2025},
   version={2.3.0},
-  url={https://github.com/your-repo/quantum-limit-graph}
+  url={https://github.com/NurchoishAdam/quantum-limit-graph}
 }
 ```
 
