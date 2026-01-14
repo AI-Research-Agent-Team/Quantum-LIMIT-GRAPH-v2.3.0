@@ -1,14 +1,13 @@
-# Core web framework
+# Core AgentBeats dependencies
+earthshaker>=0.1.0
+
+# Web framework (if earthshaker doesn't include it)
 fastapi==0.109.0
 uvicorn[standard]==0.27.0
 pydantic==2.5.3
 
-# A2A Protocol support
-a2a-python>=0.1.0
-
 # Async support
 aiohttp==3.9.1
-asyncio==3.4.3
 
 # NLP and Language Processing
 transformers==4.36.2
@@ -39,12 +38,10 @@ pandas==2.1.4
 # Logging and monitoring
 python-json-logger==2.0.7
 
-# AgentBeats integration (if available)
-earthshaker>=0.1.0
-
 # Testing
 pytest==7.4.4
 pytest-asyncio==0.23.3
+httpx==0.26.0
 
 # Type checking
 mypy==1.8.0
