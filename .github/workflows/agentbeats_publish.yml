@@ -1,0 +1,37 @@
+name: AgentBeats Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  benchmark-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # 1. Run Unit Tests & Small Benchmark
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Run Tests
+        run: pytest tests/
+        
+      # 2. Build Docker Image
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Build and Push Agent Image
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/quantum-limit-agent:latest .
+          docker push ghcr.io/${{ github.repository_owner }}/quantum-limit-agent:latest
+
+      # 3. (Optional) Auto-update Leaderboard
+      # You could add a script here to POST the new scores to a leaderboard API
