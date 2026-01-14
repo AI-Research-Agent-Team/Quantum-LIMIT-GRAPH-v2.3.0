@@ -1,41 +1,54 @@
-# Quantum LIMIT-GRAPH v2.3.0 Requirements
+# Core web framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
 
-# Core Dependencies
-numpy>=1.26.4
-networkx>=3.2.1
-transformers>=4.30.0
-torch>=2.2.0
+# A2A Protocol support
+a2a-python>=0.1.0
+
+# Async support
+aiohttp==3.9.1
+asyncio==3.4.3
+
+# NLP and Language Processing
+transformers==4.36.2
+torch==2.1.2
+sentencepiece==0.1.99
+sacremoses==0.1.1
+
+# Multilingual support (mBART-50)
+tokenizers==0.15.0
+
+# Quantum computing (optional but recommended)
+qiskit==0.45.3
+qiskit-optimization==0.6.0
+qiskit-algorithms==0.3.0
+
+# Graph processing
+networkx==3.2.1
+numpy==1.26.3
+scipy==1.11.4
+
+# Semantic similarity and embeddings
+sentence-transformers==2.3.1
 scikit-learn==1.4.0
 
-# Quantum Computing
-qiskit>=1.1.0
-qiskit-optimization>=0.6.0
-qiskit-algorithms>=0.3.0
+# Data processing
+pandas==2.1.4
 
-# NLP and Multilingual
-transformers==4.38.1
-sentencepiece==0.1.99
-torch==2.2.0
+# Logging and monitoring
+python-json-logger==2.0.7
 
-# Web / Dashboard (optional if serving a UI)
-gradio==4.19.2
-fastapi==0.109.2
-uvicorn==0.27.1
+# AgentBeats integration (if available)
+earthshaker>=0.1.0
 
-# Data Processing
-pandas>=2.2.1
-scipy>=1.7.0
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
 
-# Visualization
-matplotlib>=3.4.0
-seaborn>=0.11.0
+# Type checking
+mypy==1.8.0
 
-# Testing and CI/CD
-pytest>=7.0.0
-pytest-cov>=3.0.0
-
-# Optional: Hugging Face Integration
-huggingface-hub>=0.16.0
-datasets>=2.12.0
-
-# Utilities tqdm==4.66.2 pyyaml==6.0.1 requests==2.31.0
+# Code quality
+black==24.1.1
+flake8==7.0.0
