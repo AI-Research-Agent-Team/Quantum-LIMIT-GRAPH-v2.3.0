@@ -1,0 +1,118 @@
+[project]
+name = "quantum-limit-graph"
+version = "2.3.0"
+description = "Multilingual Quantum Research Agent Benchmark for AgentX-AgentBeats Competition"
+authors = [
+    {name = "AI Research Agent Team", email = "team@example.com"}
+]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.11"
+keywords = ["ai", "agents", "benchmark", "quantum", "multilingual", "agentbeats"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Core AgentBeats dependencies
+    "earthshaker>=0.1.0",
+    
+    # Web framework
+    "fastapi==0.109.0",
+    "uvicorn[standard]==0.27.0",
+    "pydantic==2.5.3",
+    
+    # Async support
+    "aiohttp==3.9.1",
+    
+    # NLP and Language Processing
+    "transformers==4.36.2",
+    "torch==2.1.2",
+    "sentencepiece==0.1.99",
+    "sacremoses==0.1.1",
+    "tokenizers==0.15.0",
+    
+    # Graph processing
+    "networkx==3.2.1",
+    "numpy==1.26.3",
+    "scipy==1.11.4",
+    
+    # Semantic similarity
+    "sentence-transformers==2.3.1",
+    "scikit-learn==1.4.0",
+    
+    # Data processing
+    "pandas==2.1.4",
+    
+    # Logging
+    "python-json-logger==2.0.7",
+]
+
+[project.optional-dependencies]
+quantum = [
+    "qiskit==0.45.3",
+    "qiskit-optimization==0.6.0",
+    "qiskit-algorithms==0.3.0",
+]
+
+dev = [
+    "pytest==7.4.4",
+    "pytest-asyncio==0.23.3",
+    "httpx==0.26.0",
+    "mypy==1.8.0",
+    "black==24.1.1",
+    "flake8==7.0.0",
+    "ruff==0.1.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/AI-Research-Agent-Team/Quantum-LIMIT-GRAPH-v2.3.0"
+Documentation = "https://github.com/AI-Research-Agent-Team/Quantum-LIMIT-GRAPH-v2.3.0/blob/main/README.md"
+Repository = "https://github.com/AI-Research-Agent-Team/Quantum-LIMIT-GRAPH-v2.3.0"
+Issues = "https://github.com/AI-Research-Agent-Team/Quantum-LIMIT-GRAPH-v2.3.0/issues"
+
+[project.scripts]
+quantum-limit-graph = "server:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["quantum_integration"]
+
+[tool.setuptools.package-data]
+quantum_integration = ["*.py"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
