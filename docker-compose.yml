@@ -1,0 +1,25 @@
+services:
+  # The Core Agent (Talks to AgentBeats)
+  api:
+    build: .
+    command: uvicorn api.server:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # The Human Dashboard (Talks to the Agent)
+  dashboard:
+    build: .
+    command: streamlit run dashboard/app.py --server.port 8501
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
