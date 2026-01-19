@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Copy requirements first for better caching
 COPY requirements.txt .
@@ -31,6 +34,8 @@ EXPOSE 8000
 
 # Make run script executable
 RUN chmod +x run.sh
+
+EXPOSE 8000
 
 # Set the entrypoint to run the agent via controller
 ENTRYPOINT ["./run.sh"]
